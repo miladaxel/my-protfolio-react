@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A developer portfolio with illustrative projects, technical skills, and case studies." />
+    <meta property="og:title" content="Developer portfolio" />
+    <meta property="og:description" content="Selected work, technical skills, and thoughtful digital experiences." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#FF6B2B" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Developer portfolio</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('portfolio:theme:v1');
+        const dark = theme === 'dark' || (theme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', dark);
+        const language = localStorage.getItem('portfolio:language:v1') === 'fa' ? 'fa' : 'en';
+        document.documentElement.lang = language;
+        document.documentElement.dir = language === 'fa' ? 'rtl' : 'ltr';
+      } catch {
+        document.documentElement.classList.toggle('dark', matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>This portfolio needs JavaScript. / برای نمایش پورتفولیو جاوااسکریپت را فعال کنید.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

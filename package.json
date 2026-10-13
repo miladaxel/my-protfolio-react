@@ -1,0 +1,30 @@
+{
+  "name": "react-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "playwright test",
+    "check:build": "node scripts/check-build.mjs"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.2.0",
+    "@fontsource/pt-sans": "^5.2.0",
+    "@fontsource/vazirmatn": "^5.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.13.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^3.4.19",
+    "vite": "^7.3.0"
+  }
+}
