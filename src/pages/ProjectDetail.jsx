@@ -17,9 +17,9 @@ export default function ProjectDetail() {
       <section className="pt-28 pb-16 md:pt-36 md:pb-20"><div className={container}>
         <SectionLink section="work" className={`inline-flex text-sm hover:text-accent mb-12 ${muted}`}>{language === 'fa' ? '→' : '←'} {t.backWork}</SectionLink>
         <div className="grid md:grid-cols-[1fr_.4fr] gap-10 items-end">
-          <div><p className="reveal text-xs font-medium text-accent tracking-[.22em] uppercase mb-4">{t.caseStudy} · {t.demo}</p>
+          <div><p className="reveal text-xs font-medium text-accent tracking-[.22em] uppercase mb-4">{t.caseStudy}</p>
             <h1 className="reveal font-display font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight tracking-tight mb-6">{text(project.title)}</h1>
-            <p className={`reveal text-lg leading-relaxed max-w-2xl ${muted}`}>{text(project.shortDescription)}</p>
+            {text(project.shortDescription) ? <p className={`reveal text-lg leading-relaxed whitespace-pre-line max-w-2xl ${muted}`}>{text(project.shortDescription)}</p> : null}
           </div>
           <dl className="reveal space-y-5 border-t md:border-t-0 md:border-s border-zinc-200 dark:border-zinc-800 pt-6 md:pt-0 md:ps-8">
             <div><dt className={`text-xs mb-2 ${muted}`}>{t.year}</dt><dd className="font-medium">{project.year}</dd></div>
@@ -28,30 +28,30 @@ export default function ProjectDetail() {
           </dl>
         </div>
         <div className="reveal mt-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
-          <img src={assetUrl(project.thumbnail)} alt={text(project.title)} className="w-full aspect-[1.54] object-cover" width="1000" height="650" />
+          {project.thumbnail ? <img src={assetUrl(project.thumbnail)} alt={text(project.title)} className="w-full aspect-[1.54] object-contain" width="1000" height="650" /> : <span className="flex min-h-72 items-center justify-center text-8xl font-display text-zinc-400">{text(project.title).slice(0, 1)}</span>}
         </div>
       </div></section>
 
-      <section className="py-16 md:py-20"><div className={`${container} grid md:grid-cols-[.7fr_1.3fr] gap-10`}>
+      {text(project.description).length ? <section className="py-16 md:py-20"><div className={`${container} grid md:grid-cols-[.7fr_1.3fr] gap-10`}>
         <SectionHeading eyebrow={t.overviewEyebrow} title={t.overview} />
-        <div className={`reveal space-y-5 text-lg leading-relaxed ${muted}`}>{text(project.description).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-      </div></section>
+        <div className={`reveal space-y-5 text-lg leading-relaxed whitespace-pre-line ${muted}`}>{text(project.description).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+      </div></section> : null}
 
-      <section className="py-20 bg-zinc-50 dark:bg-zinc-900/40"><div className={container}>
+      {project.features.length ? <section className="py-20 bg-zinc-50 dark:bg-zinc-900/40"><div className={container}>
         <SectionHeading eyebrow={t.featuresEyebrow} title={t.features} />
         <div className="grid md:grid-cols-3 gap-6">{project.features.map((feature) => <article key={feature.title.en} className="reveal rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-7">
           <span className="block text-accent text-xl mb-5" aria-hidden="true">↗</span>
-          <h3 className="font-display font-bold text-xl mb-3">{text(feature.title)}</h3><p className={`text-sm leading-relaxed ${muted}`}>{text(feature.description)}</p>
+          <h3 className="font-display font-bold text-xl mb-3">{text(feature.title)}</h3>{text(feature.description) ? <p className={`text-sm leading-relaxed whitespace-pre-line ${muted}`}>{text(feature.description)}</p> : null}
         </article>)}</div>
-      </div></section>
+      </div></section> : null}
 
-      <section className="py-20"><div className={container}>
+      {project.images.length ? <section className="py-20"><div className={container}>
         <SectionHeading eyebrow={t.galleryEyebrow} title={t.gallery} />
         <div className={`grid gap-8 ${project.images.length > 1 ? 'md:grid-cols-2' : ''}`}>{project.images.map((image) => <figure key={image.src} className="reveal">
-          <img src={assetUrl(image.src)} alt={text(image.caption)} width="1000" height="650" className="w-full rounded-2xl border border-zinc-200 dark:border-zinc-800" loading="lazy" />
-          <figcaption className={`mt-3 text-sm leading-relaxed ${muted}`}>{text(image.caption)}</figcaption>
+          <img src={assetUrl(image.src)} alt={text(image.caption) || text(project.title)} width="1000" height="650" className="w-full h-auto rounded-2xl border border-zinc-200 dark:border-zinc-800" loading="lazy" />
+          {text(image.caption) ? <figcaption className={`mt-3 text-sm leading-relaxed ${muted}`}>{text(image.caption)}</figcaption> : null}
         </figure>)}</div>
-      </div></section>
+      </div></section> : null}
 
       {project.githubUrl || project.linkedinUrl ? <section className="py-16 border-y border-zinc-200 dark:border-zinc-800"><div className={container}>
         <SectionHeading eyebrow={t.links} title={t.links} />

@@ -7,7 +7,8 @@ const skillCount = skillGroups.reduce((total, group) => total + group.skills.len
 
 export default function Home() {
   const { t, text, language } = usePreferences();
-  const featured = projects.filter((project) => project.featured);
+  const selected = projects.filter((project) => project.featured);
+  const featured = (selected.length ? selected : projects).slice(0, 3);
   const number = (value) => new Intl.NumberFormat(language).format(value);
   return <>
     <PageMetadata title={`${text(profile.name)} — ${text(profile.role)}`} description={text(profile.shortBio)} />
@@ -17,8 +18,8 @@ export default function Home() {
         <div className="grid md:grid-cols-[1.05fr_.95fr] gap-14 items-center">
           <div>
             <p className="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">{t.heroEyebrow}</p>
-            <h1 className="reveal font-display font-bold text-5xl md:text-6xl lg:text-8xl leading-[1.08] tracking-tight mb-6">{t.hello} <span className="text-accent">{text(profile.name)}</span> {t.helloEnd}</h1>
-            <p className={`reveal text-lg md:text-xl font-normal leading-relaxed max-w-xl mb-9 ${muted}`}>{text(profile.shortBio)}</p>
+            <h1 className="reveal font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.08] tracking-tight mb-6">{t.hello} <span className="text-accent">{text(profile.name)}</span> {t.helloEnd}</h1>
+            <p className={`reveal text-lg md:text-xl font-normal leading-relaxed whitespace-pre-line max-w-xl mb-9 ${muted}`}>{text(profile.shortBio)}</p>
             <div className="reveal flex flex-wrap gap-4"><SectionLink section="work" className={primaryButton}>{t.viewWork} ↓</SectionLink><SectionLink section="contact" className={outlineButton}>{t.contactMe}</SectionLink></div>
             <dl className="reveal flex flex-wrap gap-x-10 gap-y-5 mt-12 pt-7 border-t border-zinc-100 dark:border-zinc-900">
               {[[number(projects.length), t.projects], [number(skillCount), t.tools], [text(profile.experience), t.experience]].map(([value, label]) => <div key={label}><dt className={`text-xs mt-1 ${muted}`}>{label}</dt><dd className="font-display font-bold text-3xl mt-1">{value}</dd></div>)}
@@ -45,7 +46,7 @@ export default function Home() {
         <div className="space-y-8">{skillGroups.map((group) => <section key={group.id} className="reveal grid gap-6 rounded-3xl border border-zinc-200 bg-white/90 p-6 dark:border-white/10 dark:bg-zinc-900/90 sm:p-8 lg:grid-cols-[15rem_1fr] lg:gap-10" aria-labelledby={`skill-${group.id}`}>
           <div className="lg:border-e lg:border-zinc-200 dark:lg:border-zinc-700 lg:pe-8"><h3 id={`skill-${group.id}`} className="font-display text-2xl font-bold">{text(group.title)}</h3><p className={`mt-2 text-sm ${muted}`}>{number(group.skills.length)} {t.skillCount}</p></div>
           <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{group.skills.map((skill) => <li key={skill.title} className="skill-card group flex min-w-0 items-center gap-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 hover:border-accent/70 dark:border-white/10 dark:bg-zinc-950">
-            <span className="ltr-content flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-zinc-200 dark:bg-zinc-800 font-display text-xl font-bold" aria-hidden="true">{skill.mark}</span><div className="min-w-0"><h4 className="ltr-content break-words font-display text-base font-bold group-hover:text-accent">{skill.title}</h4><p className={`mt-1 text-xs ${muted}`}>{text(group.title)}</p></div>
+            <span className="ltr-content flex h-12 w-12 shrink-0 items-center justify-center rounded-xl overflow-hidden bg-zinc-200 dark:bg-zinc-800 font-display text-xl font-bold" aria-hidden="true">{skill.icon ? <img src={assetUrl(skill.icon)} alt="" className="w-full h-full object-contain" width="96" height="96" loading="lazy" /> : skill.mark}</span><div className="min-w-0"><h4 className="ltr-content break-words font-display text-base font-bold group-hover:text-accent">{skill.title}</h4><p className={`mt-1 text-xs ${muted}`}>{text(group.title)}</p></div>
           </li>)}</ul>
         </section>)}</div>
       </div>
@@ -60,8 +61,8 @@ export default function Home() {
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="reveal order-2 md:order-1"><Avatar small /></div>
         <div className="order-1 md:order-2"><SectionHeading eyebrow={t.aboutEyebrow} title={t.aboutTitle} />
-          <div className={`reveal space-y-5 leading-relaxed ${muted}`}>{text(profile.bio).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-          <a href={assetUrl(profile.resume)} download className={`${outlineButton} mt-8`}>{t.resume} ↓</a>
+          <div className={`reveal space-y-5 leading-relaxed whitespace-pre-line ${muted}`}>{text(profile.bio).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+          {profile.resume ? <a href={assetUrl(profile.resume)} download className={`${outlineButton} mt-8`}>{t.resume} ↓</a> : null}
         </div>
       </div>
     </div></section>
@@ -71,7 +72,7 @@ export default function Home() {
         <div><SectionHeading eyebrow={t.contactEyebrow} title={t.contactTitle} />
           <p className="reveal text-zinc-400 leading-relaxed mb-8">{t.contactDescription}</p>
           <div className="flex flex-wrap gap-5 text-sm">
-            {profile.email ? <a className="text-accent underline underline-offset-4" href={`mailto:${profile.email}`}>{t.emailMe} ↗</a> : null}
+            {profile.email ? <a className="text-accent underline underline-offset-4 break-all ltr-content" href={`mailto:${profile.email}`}>{profile.email} ↗</a> : null}
             {profile.githubUrl ? <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a> : null}
             {profile.linkedinUrl ? <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a> : null}
           </div>

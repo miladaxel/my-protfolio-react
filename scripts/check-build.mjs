@@ -10,7 +10,7 @@ const directory = fileURLToPath(new URL('../dist/', import.meta.url));
 const screenshots = fileURLToPath(new URL('../.verification/', import.meta.url));
 const prefix = process.argv[2] ?? '/portfolio-check/';
 assert(prefix.startsWith('/') && prefix.endsWith('/'), 'Pass a base path with leading and trailing slashes.');
-const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.woff': 'font/woff', '.woff2': 'font/woff2', '.txt': 'text/plain' };
+const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.woff': 'font/woff', '.woff2': 'font/woff2', '.txt': 'text/plain', '.pdf': 'application/pdf' };
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
@@ -26,6 +26,8 @@ const server = createServer(async (request, response) => {
 await new Promise((ready) => server.listen(0, '127.0.0.1', ready));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const url = origin + prefix;
+const content = JSON.parse(await readFile(new URL('../src/data/content.json', import.meta.url), 'utf8'));
+const firstProject = content.projects.find((project) => project.featured) ?? content.projects[0];
 let browser;
 try {
   browser = await chromium.launch(process.env.PORTFOLIO_CHROMIUM_EXECUTABLE_PATH
@@ -36,8 +38,8 @@ try {
   page.on('response', (response) => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   page.on('request', (request) => { if (!request.url().startsWith(origin)) errors.push(`External request: ${request.url()}`); });
   await page.goto(url);
-  await page.getByRole('heading', { level: 1 }).filter({ hasText: 'Alex' }).waitFor();
-  for (const image of await page.locator('img').all()) await image.scrollIntoViewIfNeeded();
+  await page.getByRole('heading', { level: 1 }).filter({ hasText: content.profile.name.en }).waitFor();
+  for (const image of await page.locator('img').all()) { await image.scrollIntoViewIfNeeded(); await image.evaluate((element) => element.decode()); }
   await page.evaluate(() => document.fonts.ready);
   assert(await page.locator('img').evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0)), 'Broken image in production build');
   await mkdir(screenshots, { recursive: true });
@@ -46,13 +48,13 @@ try {
   await page.screenshot({ path: resolve(screenshots, 'home-desktop-en.png'), fullPage: true });
   await page.locator('#work a').first().click();
   await page.reload();
-  assert.equal(await page.getByRole('heading', { level: 1 }).innerText(), 'Northstar commerce');
-  assert(page.url().includes(`${prefix}#/projects/northstar-commerce`), 'Subpath must be retained');
+  assert.equal(await page.getByRole('heading', { level: 1 }).innerText(), firstProject.title.en);
+  assert(page.url().includes(`${prefix}#/projects/${firstProject.slug}`), 'Subpath must be retained');
   await page.screenshot({ path: resolve(screenshots, 'project-desktop-en.png'), fullPage: true });
   await page.getByRole('button', { name: 'View site in Persian' }).click();
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(url);
-  await page.getByRole('heading', { level: 1 }).filter({ hasText: 'الکس' }).waitFor();
+  await page.getByRole('heading', { level: 1 }).filter({ hasText: content.profile.name.fa }).waitFor();
   assert.equal(await page.locator('html').getAttribute('dir'), 'rtl');
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Mobile page overflows');
   for (const image of await page.locator('img').all()) {

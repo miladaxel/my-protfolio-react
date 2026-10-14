@@ -103,7 +103,7 @@ export default function Layout({ children }) {
     <main id="main-content" ref={mainRef} tabIndex={-1} className="relative z-10 outline-none">{children}</main>
     <footer className="relative border-t border-zinc-200 dark:border-zinc-900">
       <div className={`${container} py-8 flex flex-col sm:flex-row items-center justify-between gap-5`}>
-        <div className="text-center sm:text-start"><p className={`text-sm ${muted}`}>© {new Date().getFullYear()} {t.copyright}</p><p className="text-xs text-zinc-500 mt-2">{t.demoNote}</p></div>
+        <div className="text-center sm:text-start"><p className={`text-sm ${muted}`}>© {new Date().getFullYear()} {t.copyright}</p></div>
         <button type="button" className="text-xs text-zinc-500 hover:text-accent transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })}>{t.backTop}</button>
       </div>
     </footer>

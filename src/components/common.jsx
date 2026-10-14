@@ -28,11 +28,10 @@ export function Tags({ skills }) {
 }
 
 export function Avatar({ small = false }) {
-  const { t } = usePreferences();
+  const { t, text } = usePreferences();
   return <div className={`relative w-full ${small ? 'max-w-sm' : 'max-w-[28rem]'} aspect-square mx-auto`}>
     <div className="avatar-frame h-full rounded-3xl flex flex-col items-center justify-center overflow-hidden border border-zinc-200 dark:border-zinc-800">
-      <span className="font-display font-bold text-[10rem] sm:text-[13rem] leading-none text-zinc-300 dark:text-zinc-700" aria-hidden="true">{profile.initials}</span>
-      <span className="text-xs text-zinc-500 tracking-widest uppercase mt-5">{t.sampleProfile}</span>
+      {profile.avatar ? <img src={assetUrl(profile.avatar)} alt={text(profile.name)} className="h-full w-full object-cover" width="800" height="800" loading={small ? 'lazy' : 'eager'} fetchPriority={small ? 'auto' : 'high'} /> : <span className="font-display font-bold text-[10rem] sm:text-[13rem] leading-none text-zinc-300 dark:text-zinc-700" aria-hidden="true">{profile.initials}</span>}
     </div>
     {!small ? <div className="absolute -bottom-4 start-3 sm:-start-4 bg-accent text-white font-display font-bold text-sm px-5 py-3 rounded-2xl shadow-lg">{t.available}</div> : null}
   </div>;
@@ -43,15 +42,14 @@ export function ProjectCard({ project, featured = false }) {
   return <article className={`project-card reveal group rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-colors ${featured ? 'lg:row-span-2' : ''}`}>
     <Link to={`/projects/${project.slug}`} className="block rounded-2xl h-full">
       <div className={`overflow-hidden bg-zinc-100 dark:bg-zinc-800 ${featured ? 'h-64 lg:h-80' : 'h-56'}`}>
-        <img src={assetUrl(project.thumbnail)} alt={text(project.title)} className="project-cover w-full h-full object-cover" width="1000" height="650" loading="lazy" />
+        {project.thumbnail ? <img src={assetUrl(project.thumbnail)} alt={text(project.title)} className="project-cover w-full h-full object-cover" width="1000" height="650" loading="lazy" /> : <span className="flex h-full items-center justify-center text-8xl font-display text-zinc-400">{text(project.title).slice(0, 1)}</span>}
       </div>
       <div className="p-6 sm:p-7">
         <div className="flex items-start gap-2 mb-4"><Tags skills={project.skills.slice(0, 3)} /><span className={`ms-auto text-xs pt-1 ${muted}`}>{project.year}</span></div>
         <h3 className="font-display font-bold text-2xl group-hover:text-accent transition-colors">{text(project.title)}</h3>
-        <p className={`mt-3 text-sm leading-relaxed ${muted}`}>{text(project.shortDescription)}</p>
+        {text(project.shortDescription) ? <p className={`mt-3 text-sm leading-relaxed whitespace-pre-line ${muted}`}>{text(project.shortDescription)}</p> : null}
         <div className="flex flex-wrap items-center gap-4 mt-6">
           <span className="text-sm font-medium group-hover:text-accent">{t.viewProject} {language === 'fa' ? '←' : '→'}</span>
-          <span className="ms-auto text-xs text-zinc-500">{t.demo}</span>
         </div>
       </div>
     </Link>

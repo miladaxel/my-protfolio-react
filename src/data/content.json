@@ -1,0 +1,170 @@
+{
+  "profile": {
+    "name": {
+      "en": "milad soltan mohammadi",
+      "fa": "میلاد"
+    },
+    "initials": "M",
+    "role": {
+      "en": "Python & Django Developer",
+      "fa": "توسعه‌دهنده پایتون و جنگو"
+    },
+    "shortBio": {
+      "en": "I’m, a Python and Django Backend Developer. I focus on delivering clean, scalable, and production-ready backends. My expertise covers the full spectrum: API design, database modeling, performance tuning, and seamless deployment.Open for new projects and collaborations.",
+      "fa": "من میلاد هستم ، برنامه نویس بک اند python و django .\r\nتخصص من  در طراحی بک اند های تمیز ، مقیاس پذیر و قابل استقرار هست . \r\nاز طراحی API و ساختار دیتابیس گرفته تا بهینه سازی عملکرد و آماده سازی سیستم برای استقرار . \r\nآماده همکاری در پروژه های شما هستم ."
+    },
+    "bio": {
+      "en": [
+        "I'am Milad Soltan Mohammadi, a Backend Developer specializing in Python and Django. I am passionate about building systems that not only function correctly but are also robust, maintainable, and reliable for future scalability.",
+        "My core focus lies in API design and development, data modeling and management, performance optimization, and backend service implementation. Rather than just shipping features, I prioritize the overall system architecture, long-term extensibility, and the actual product requirements.",
+        "Currently, I am actively expanding my expertise in system design, backend architecture, and building scalable services.",
+        "Education",
+        "B.Sc. in Computer Science — Lorestan University",
+        "2022 – 2026 (1401 – 1405)"
+      ],
+      "fa": [
+        "من میلاد سلطان محمدی هستم؛ برنامه‌نویس بک‌اند با تمرکز بر Python و Django و علاقه‌مند به طراحی سیستم‌هایی که علاوه بر عملکرد درست، از نظر ساختار، نگهداری و توسعه در آینده نیز قابل‌اعتماد باشند.",
+        "تمرکز اصلی من روی طراحی و توسعه API، مدیریت و مدل‌سازی داده‌ها، بهینه‌سازی عملکرد و پیاده‌سازی سرویس‌های بک‌اند است. در پروژه‌ها تلاش می‌کنم صرفاً یک قابلیت را پیاده‌سازی نکنم، بلکه به ساختار کلی سیستم، قابلیت توسعه و نیاز واقعی محصول نیز توجه داشته باشم.",
+        "در حال حاضر نیز به‌طور مستمر دانش خود را در زمینه طراحی سیستم، معماری بک‌اند و ساخت سرویس‌های مقیاس‌پذیر عمیق‌تر می‌کنم.",
+        "تحصیلات",
+        "علوم کامپیوتر — دانشگاه لرستان\r\nکارشناسی، ۱۴۰۱ تا ۱۴۰۵"
+      ]
+    },
+    "avatar": "images/portfolio/avatar.jpg",
+    "experience": {
+      "en": "4y",
+      "fa": "۴ سال"
+    },
+    "email": "milad.axel1@gmail.com",
+    "githubUrl": "https://github.com/miladaxel",
+    "linkedinUrl": "https://github.com/miladaxel",
+    "resume": null
+  },
+  "skillGroups": [
+    {
+      "id": "category-1",
+      "category": "web development",
+      "title": {
+        "en": "Web development",
+        "fa": "توسعه وب"
+      },
+      "skills": [
+        {
+          "title": "Django",
+          "mark": "Dj",
+          "icon": "images/portfolio/skill-1.png"
+        },
+        {
+          "title": "REST API",
+          "mark": "RE",
+          "icon": "images/portfolio/skill-2.webp"
+        }
+      ]
+    },
+    {
+      "id": "category-2",
+      "category": "deployment",
+      "title": {
+        "en": "Deployment",
+        "fa": "استقرار"
+      },
+      "skills": [
+        {
+          "title": "Docke",
+          "mark": "Do",
+          "icon": "images/portfolio/skill-3.webp"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "borhan",
+      "title": {
+        "en": "borhan",
+        "fa": "برهان"
+      },
+      "shortDescription": {
+        "en": "",
+        "fa": "یک سامانه ی کامل مدیریت دانش آموزان ‌. تولید جزوه . بررسی عملکرد دانش آموزان .  طرح تمرین اختصاصی برای هر دانش آموز . تصحیح خودکار ."
+      },
+      "description": {
+        "en": [],
+        "fa": [
+          "یک سامانه ی کامل مدیریت دانش آموزان ‌. تولید جزوه . بررسی عملکرد دانش آموزان .  طرح تمرین اختصاصی برای هر دانش آموز . تصحیح خودکار ."
+        ]
+      },
+      "year": "2026",
+      "status": "draft",
+      "featured": true,
+      "skills": [
+        "Django",
+        "REST API",
+        "Docke"
+      ],
+      "thumbnail": "images/portfolio/project-2-cover.png",
+      "features": [],
+      "images": [
+        {
+          "src": "images/portfolio/project-2-image-2.png",
+          "caption": {
+            "en": "",
+            "fa": ""
+          }
+        }
+      ],
+      "githubUrl": "https://github.com/miladaxel/ai-assistant-with-sina",
+      "linkedinUrl": "https://github.com/miladaxel/ai-assistant-with-sina"
+    },
+    {
+      "slug": "django",
+      "title": {
+        "en": "django",
+        "fa": "django"
+      },
+      "shortDescription": {
+        "en": "asfsfaf",
+        "fa": "asfsfaf"
+      },
+      "description": {
+        "en": [
+          "fasffasf"
+        ],
+        "fa": [
+          "fasffasf"
+        ]
+      },
+      "year": "2026",
+      "status": "draft",
+      "featured": true,
+      "skills": [
+        "Django",
+        "REST API"
+      ],
+      "thumbnail": "images/portfolio/project-1-cover.png",
+      "features": [
+        {
+          "title": {
+            "en": "asdasd",
+            "fa": "asdasd"
+          },
+          "description": {
+            "en": "sdfsadqwdqwsd",
+            "fa": "sdfsadqwdqwsd"
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "images/portfolio/project-1-image-1.png",
+          "caption": {
+            "en": "",
+            "fa": ""
+          }
+        }
+      ],
+      "githubUrl": "https://hexdl.com/the-blacklist-series/",
+      "linkedinUrl": "https://hexdl.com/the-blacklist-series/"
+    }
+  ]
+}
