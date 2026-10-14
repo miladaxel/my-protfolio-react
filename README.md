@@ -1,5 +1,7 @@
 # Static React portfolio / پورتفولیوی React
 
+[![CI/CD](https://github.com/miladaxel/my-protfolio-react/actions/workflows/pages.yml/badge.svg)](https://github.com/miladaxel/my-protfolio-react/actions/workflows/pages.yml)
+
 پورتفولیوی استاتیک React با مخزن Git مستقل.
 این پروژه به بک‌اند، دیتابیس یا API نیاز ندارد.
 تمام اطلاعات پروفایل، مهارت‌ها، پروژه‌ها و تصاویر، نمایشی و محلی هستند.
@@ -56,29 +58,46 @@ npm run preview
 
 Workflow مستقل در `.github/workflows/pages.yml` در ریشه همین مخزن قرار دارد.
 فقط خروجی استاتیک `dist` منتشر می‌شود. وابستگی‌ها، کش‌ها و فایل‌های محیطی
-در Git نادیده گرفته می‌شوند. هنوز remote تنظیم نشده و سایت آنلاین منتشر نشده است.
+در Git نادیده گرفته می‌شوند.
 
-1. یک مخزن خالی و جداگانه در GitHub بسازید؛ آن را با README یا فایل‌های اولیه
-   مقداردهی نکنید، چون این مخزن از قبل اولین commit و شاخه `main` دارد.
-2. از ریشه همین مخزن، آن را به آدرس واقعی مخزن جدید وصل کنید. مقدار نمونه زیر
-   را با آدرس خودتان جایگزین کنید:
+- مخزن: [miladaxel/my-protfolio-react](https://github.com/miladaxel/my-protfolio-react)
+- سایت عمومی: [مشاهده پورتفولیو](https://miladaxel.github.io/my-protfolio-react/)
+- وضعیت اجراها: [GitHub Actions](https://github.com/miladaxel/my-protfolio-react/actions/workflows/pages.yml)
+
+GitHub Pages برای این مخزن فعال است. برای به‌روزرسانی سایت، تغییرات را از ریشه همین
+مخزن روی شاخه `main` ثبت و push کنید:
 
 ```powershell
-git remote add origin https://github.com/USERNAME/REPOSITORY.git
-git push -u origin main
+git add -- .
+git commit -m "Update portfolio"
+git push origin main
 ```
 
-3. در GitHub، مسیر **Settings → Pages → Build and deployment → Source**
-   را باز کنید و **GitHub Actions** را انتخاب کنید.
-4. از تب **Actions**، Workflow با نام **Publish React portfolio to GitHub Pages**
-   را انتخاب و **Run workflow** را روی `main` اجرا کنید. برای انتشارهای بعدی،
-   هر push به `main` خودکار تست، ساخت و انتشار را انجام می‌دهد.
+## CI/CD
+
+Workflow با نام **Portfolio CI/CD** این مراحل را خودکار انجام می‌دهد:
+
+1. نصب وابستگی‌های دقیق از `package-lock.json`.
+2. اجرای تست‌های مرورگر برای زبان و پوسته، فرم، مسیرهای پروژه و موبایل.
+3. ساخت فایل‌های استاتیک و بررسی خروجی در مسیر انتشار.
+4. انتشار سایت روی GitHub Pages پس از موفقیت همه بررسی‌ها، برای شاخه `main`.
+
+| رویداد | تست و ساخت | انتشار سایت |
+| --- | --- | --- |
+| Push به `main` | بله | پس از موفقیت بررسی‌ها |
+| Push به شاخه‌های دیگر | بله | خیر |
+| Pull Request به `main` | بله | خیر |
+| اجرای دستی روی `main` | بله | پس از موفقیت بررسی‌ها |
+
+برای اجرای دستی از تب **Actions → Portfolio CI/CD → Run workflow** استفاده کنید.
+اجرای قدیمی شاخه‌های آزمایشی با push جدید همان شاخه لغو می‌شود. انتشارهای `main`
+هنگام اجرا لغو نمی‌شوند. در صورت شکست بررسی‌ها، فایل‌های تشخیص خطا و trace تست‌ها
+در بخش **Artifacts** همان اجرا تا ۷ روز نگه داشته می‌شوند.
 
 تست‌ها و بررسی مسیر انتشار قبل از Deploy اجرا می‌شوند؛ با شکست هرکدام، نسخه جدید
 منتشر نمی‌شود. مسیر پایه سایت از تنظیمات Pages گرفته می‌شود تا آدرس‌های فایل‌ها
 در مخزن پروژه‌ای، سایت کاربری یا دامنه سفارشی درست باشند.
 
-آدرس سایت معمولاً `https://USERNAME.github.io/REPOSITORY/` خواهد بود.
 استفاده از مسیرهای hash باعث می‌شود صفحه پروژه‌ها بعد از رفرش نیز درست کار کند.
 
 راهنمای رسمی: [GitHub Pages با Workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
