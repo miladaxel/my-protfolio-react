@@ -143,13 +143,21 @@ test('Borhan is the only project and its gallery links retain the project route'
   await page.reload();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Borhan');
 
-  const imageLink = page.locator('#project-gallery a');
-  const [imagePage] = await Promise.all([page.waitForEvent('popup'), imageLink.click()]);
-  await imagePage.waitForLoadState();
-  await expect(imagePage.locator('img')).toBeVisible();
-  expect(await imagePage.locator('img').evaluate((image) => image.naturalWidth)).toBe(1920);
-  await imagePage.close();
+  const imageLinks = page.locator('#project-gallery a');
+  await expect(imageLinks).toHaveCount(firstProject.images.length);
+  for (const [index, image] of firstProject.images.entries()) {
+    const imageLink = imageLinks.nth(index);
+    await expect(imageLink).toHaveAttribute('href', `/${image.src}`);
+    const [imagePage] = await Promise.all([page.waitForEvent('popup'), imageLink.click()]);
+    await imagePage.waitForLoadState();
+    await expect(imagePage.locator('img')).toBeVisible();
+    expect(await imagePage.locator('img').evaluate((element) => element.naturalWidth)).toBe(image.width);
+    await imagePage.close();
+  }
   await page.getByRole('button', { name: 'View site in Persian' }).click();
-  await expect(page.locator('#project-gallery')).toContainText('ارزیابی، به تفکیک هر پاسخ.');
+  for (const image of firstProject.images) {
+    await expect(page.locator('#project-gallery')).toContainText(image.title.fa);
+    await expect(page.locator('#project-gallery')).toContainText(image.caption.fa);
+  }
   await expect(page.getByRole('heading', { name: 'از کلاس درس تا بازخورد.' })).toBeVisible();
 });

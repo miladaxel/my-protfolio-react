@@ -92,12 +92,12 @@
         "en": [
           "Borhan brings the recurring tasks of teaching into a single web application: managing classes and students, preparing learning materials, assigning practice, and reviewing assessment results.",
           "The project connects those tasks around the student’s learning journey. Learning materials support teaching, personalized exercises provide opportunities to practise, and automatic grading feeds into a closer review of each student’s performance.",
-          "The interface is designed in Persian with a right-to-left layout. The screenshots show the product introduction and the teacher’s assessment workspace, including question-level results for individual students."
+          "The interface is designed in Persian with a right-to-left layout. The screenshots show the product introduction, teacher dashboard, exam analysis workflow, lesson and exam file uploads, and educational notes for classes or individual students."
         ],
         "fa": [
           "برهان یک اپلیکیشن تحت وب برای مدیریت دانش‌آموزان و کارهای روزمرهٔ آموزش است. مدیریت کلاس، آماده‌سازی محتوای درسی، طراحی تمرین و بررسی نتیجهٔ آزمون در یک محیط کنار هم قرار می‌گیرند تا معلم مسیر آموزش را منسجم‌تر دنبال کند.",
           "محور پروژه، پیوند دادن آموزش و ارزیابی است: محتوای درسی برای تدریس آماده می‌شود، تمرین اختصاصی به یادگیری هر دانش‌آموز کمک می‌کند و نتیجهٔ تصحیح خودکار، مبنایی برای بررسی دقیق‌تر عملکرد او فراهم می‌آورد.",
-          "رابط فارسی و راست‌چین پروژه برای استفاده در فضای آموزشی طراحی شده است. تصاویر این صفحه، معرفی محصول و محیط بررسی نتایج آزمون را نشان می‌دهند؛ جایی که وضعیت پاسخ هر دانش‌آموز به تفکیک سؤال قابل مشاهده است."
+          "رابط فارسی و راست‌چین پروژه برای استفاده در فضای آموزشی طراحی شده است. تصاویر این صفحه، معرفی محصول، پنل معلم، مسیر تحلیل آزمون، بارگذاری فایل‌های درس و سؤال و ثبت یادداشت آموزشی برای کلاس یا دانش‌آموز را نشان می‌دهند."
         ]
       },
       "year": "2026",
@@ -173,18 +173,69 @@
       ],
       "images": [
         {
-          "src": "images/portfolio/project-2-image-2.png",
+          "src": "images/portfolio/borhan-teacher-dashboard.png",
           "title": {
-            "en": "Assessment, one answer at a time.",
-            "fa": "ارزیابی، به تفکیک هر پاسخ."
+            "en": "The teacher’s workspace.",
+            "fa": "پنل معلم؛ نمای کلی فعالیت‌های آموزشی."
           },
           "caption": {
-            "en": "The exam results workspace shows each student’s answers question by question. Correct and incorrect labels make the result readable without relying on color alone; the side navigation keeps classes, exams, analysis, and exercises within reach.",
-            "fa": "در صفحهٔ نتایج آزمون، پاسخ هر دانش‌آموز به تفکیک سؤال نمایش داده می‌شود. برچسب‌های «درست» و «غلط» نتیجه را علاوه بر رنگ، با متن مشخص می‌کنند. منوی کناری نیز دسترسی به کلاس‌ها، آزمون‌ها، تحلیل‌ها و تمرین‌ها را فراهم می‌کند."
+            "en": "The dashboard brings class, student, exam, analysis, and practice counts together, with quick access to intelligent analysis, exam design, and personalized exercises.",
+            "fa": "پنل معلم، آمار کلاس‌ها، دانش‌آموزان، آزمون‌ها، تحلیل‌ها و برنامه‌های تمرینی را کنار هم نمایش می‌دهد و دسترسی سریع به تحلیل هوشمند، طراحی آزمون و ساخت تمرین شخصی‌سازی‌شده را فراهم می‌کند."
           },
           "alt": {
-            "en": "Borhan exam results: student-by-student tables with correct and incorrect answers and a Persian navigation sidebar.",
-            "fa": "صفحهٔ نتایج آزمون برهان با جدول پاسخ‌های درست و غلط هر دانش‌آموز و منوی فارسی پنل."
+            "en": "Borhan teacher dashboard with activity statistics, a teacher profile, and quick links to teaching tools.",
+            "fa": "پنل معلم برهان با آمار فعالیت‌ها، پروفایل معلم و دسترسی سریع به ابزارهای آموزشی."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/borhan-exam-analysis.png",
+          "title": {
+            "en": "Exam analysis in two stages.",
+            "fa": "تحلیل آزمون در دو مرحله."
+          },
+          "caption": {
+            "en": "The analysis workspace separates question analysis from student answer analysis. Each stage explains its inputs and outputs, guiding the teacher from lesson and exam files to individual performance reports.",
+            "fa": "محیط تحلیل آزمون دو مسیر مرتبط دارد: تحلیل سؤال‌های آزمون و تحلیل پاسخ‌های دانش‌آموزان. ورودی و خروجی هر مرحله مشخص است تا معلم از فایل درس و آزمون به گزارش عملکرد هر دانش‌آموز برسد."
+          },
+          "alt": {
+            "en": "Borhan intelligent exam analysis page with separate cards for question analysis and student answer analysis.",
+            "fa": "صفحهٔ تحلیل هوشمند آزمون برهان با دو کارت تحلیل سؤال‌ها و تحلیل پاسخ‌های دانش‌آموزان."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/borhan-create-analysis.png",
+          "title": {
+            "en": "Connect lesson materials to exam questions.",
+            "fa": "ایجاد تحلیل با فایل درس و سؤال‌های آزمون."
+          },
+          "caption": {
+            "en": "The teacher selects an exam and uploads PDFs of the lesson or book and exam questions. The page explains how questions are compared with teaching materials to identify their connection to the lesson content.",
+            "fa": "معلم آزمون را انتخاب می‌کند و فایل‌های PDF درس یا کتاب و سؤال‌های آزمون را بارگذاری می‌کند. راهنمای صفحه توضیح می‌دهد که سؤال‌ها با محتوای آموزشی مقایسه می‌شوند تا ارتباط هر سؤال با درس مشخص شود."
+          },
+          "alt": {
+            "en": "Borhan analysis creation form with an exam selector and two PDF upload areas for lesson materials and exam questions.",
+            "fa": "فرم ایجاد تحلیل برهان با انتخاب آزمون و دو بخش بارگذاری PDF درس و سؤال‌های آزمون."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/borhan-teaching-notes.png",
+          "title": {
+            "en": "Keep educational observations close.",
+            "fa": "یادداشت‌های آموزشی برای کلاس و دانش‌آموز."
+          },
+          "caption": {
+            "en": "Teachers can record observations and follow-up items for a whole class or an individual student. The writing area and recent-notes panel keep teaching notes accessible for future reference.",
+            "fa": "معلم می‌تواند مشاهده‌ها، نکات آموزشی و موارد نیازمند پیگیری را برای کل کلاس یا یک دانش‌آموز ثبت کند. فضای نوشتن یادداشت و بخش یادداشت‌های اخیر، مراجعهٔ دوباره به این نکات را آسان می‌کنند."
+          },
+          "alt": {
+            "en": "Borhan educational notes form with class or student selection, a class dropdown, a lined writing area, and recent notes.",
+            "fa": "فرم یادداشت آموزشی برهان با انتخاب کلاس یا دانش‌آموز، فهرست کلاس‌ها، فضای نوشتن و یادداشت‌های اخیر."
           },
           "width": 1920,
           "height": 1020
