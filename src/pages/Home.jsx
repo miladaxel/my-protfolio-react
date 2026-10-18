@@ -54,7 +54,7 @@ export default function Home() {
 
     <section id="work" className="py-20 md:py-24"><div className={container}>
       <SectionHeading eyebrow={t.workEyebrow} title={t.workTitle} description={t.workDescription} />
-      <div className="grid lg:grid-cols-2 gap-6">{featured.map((project, index) => <ProjectCard key={project.slug} project={project} featured={index === 0 && featured.length === 3} />)}</div>
+      <div className="grid lg:grid-cols-2 gap-6">{featured.map((project, index) => <ProjectCard key={project.slug} project={project} spotlight={featured.length === 1} featured={index === 0 && featured.length === 3} />)}</div>
     </div></section>
 
     <section id="about" className="py-20 md:py-24 bg-zinc-50 dark:bg-zinc-900/40"><div className={container}>

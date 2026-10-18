@@ -124,3 +124,32 @@ test('published profile text, images, and contact links match the imported conte
     if (project.githubUrl) await expect(page.locator('main > article').getByRole('link', { name: /مشاهده کد پروژه/ })).toHaveAttribute('href', project.githubUrl);
   }
 });
+
+test('Borhan is the only project and its gallery links retain the project route', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#work .project-card')).toHaveCount(1);
+  await expect(page.locator('#work')).toContainText('Borhan');
+  await expect(page.locator('#work a[href*="/projects/django"]')).toHaveCount(0);
+  await page.goto('/#/projects/django');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('This page could not be found.');
+
+  await page.goto('/#/projects/borhan');
+  await expect(page.getByRole('heading', { name: 'More projects', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'From classroom to feedback.' })).toBeVisible();
+  await expect(page.locator('main > article ol > li')).toHaveCount(4);
+  await page.getByRole('link', { name: 'Explore the interface', exact: false }).click();
+  await expect(page).toHaveURL(/#\/projects\/borhan#project-gallery$/);
+  await expect.poll(() => page.locator('#project-gallery').evaluate((element) => Math.round(element.getBoundingClientRect().top))).toBeLessThan(100);
+  await page.reload();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Borhan');
+
+  const imageLink = page.locator('#project-gallery a');
+  const [imagePage] = await Promise.all([page.waitForEvent('popup'), imageLink.click()]);
+  await imagePage.waitForLoadState();
+  await expect(imagePage.locator('img')).toBeVisible();
+  expect(await imagePage.locator('img').evaluate((image) => image.naturalWidth)).toBe(1920);
+  await imagePage.close();
+  await page.getByRole('button', { name: 'View site in Persian' }).click();
+  await expect(page.locator('#project-gallery')).toContainText('ارزیابی، به تفکیک هر پاسخ.');
+  await expect(page.getByRole('heading', { name: 'از کلاس درس تا بازخورد.' })).toBeVisible();
+});

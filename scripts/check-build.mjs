@@ -50,6 +50,11 @@ try {
   await page.reload();
   assert.equal(await page.getByRole('heading', { level: 1 }).innerText(), firstProject.title.en);
   assert(page.url().includes(`${prefix}#/projects/${firstProject.slug}`), 'Subpath must be retained');
+  for (const image of await page.locator('img').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((element) => element.decode());
+  }
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
   await page.screenshot({ path: resolve(screenshots, 'project-desktop-en.png'), fullPage: true });
   await page.getByRole('button', { name: 'View site in Persian' }).click();
   await page.setViewportSize({ width: 390, height: 844 });
@@ -66,6 +71,18 @@ try {
   await page.screenshot({ path: resolve(screenshots, 'home-mobile-fa.png'), fullPage: true });
   await page.getByRole('button', { name: 'استفاده از پوسته تیره' }).click();
   await page.screenshot({ path: resolve(screenshots, 'home-mobile-fa-dark.png'), fullPage: true });
+  await page.goto(`${url}#/projects/${firstProject.slug}`);
+  await page.getByRole('heading', { level: 1 }).filter({ hasText: firstProject.title.fa }).waitFor();
+  for (const image of await page.locator('img').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((element) => element.decode());
+  }
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Persian mobile project overflows');
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await page.screenshot({ path: resolve(screenshots, 'project-mobile-fa-dark.png'), fullPage: true });
+  await page.getByRole('button', { name: 'استفاده از پوسته روشن' }).click();
+  await page.setViewportSize({ width: 1440, height: 950 });
+  await page.screenshot({ path: resolve(screenshots, 'project-desktop-fa.png'), fullPage: true });
   assert.deepEqual(errors, []);
   console.log(`Production build passed at ${prefix}: local assets, direct project reload, Persian mobile, light/dark, and no browser errors.`);
   console.log('Screenshots saved in .verification/.');

@@ -37,17 +37,19 @@ export function Avatar({ small = false }) {
   </div>;
 }
 
-export function ProjectCard({ project, featured = false }) {
+export function ProjectCard({ project, featured = false, spotlight = false }) {
   const { t, text, language } = usePreferences();
-  return <article className={`project-card reveal group rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-colors ${featured ? 'lg:row-span-2' : ''}`}>
-    <Link to={`/projects/${project.slug}`} className="block rounded-2xl h-full">
-      <div className={`overflow-hidden bg-zinc-100 dark:bg-zinc-800 ${featured ? 'h-64 lg:h-80' : 'h-56'}`}>
-        {project.thumbnail ? <img src={assetUrl(project.thumbnail)} alt={text(project.title)} className="project-cover w-full h-full object-cover" width="1000" height="650" loading="lazy" /> : <span className="flex h-full items-center justify-center text-8xl font-display text-zinc-400">{text(project.title).slice(0, 1)}</span>}
+  return <article className={`project-card reveal group rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-colors ${spotlight ? 'lg:col-span-2' : featured ? 'lg:row-span-2' : ''}`}>
+    <Link to={`/projects/${project.slug}`} className={`rounded-2xl h-full ${spotlight ? 'grid md:grid-cols-[1.15fr_1fr] items-center' : 'block'}`}>
+      <div className={`overflow-hidden bg-zinc-100 dark:bg-zinc-800 ${spotlight ? 'p-4 sm:p-6 md:p-8' : featured ? 'h-64 lg:h-80' : 'h-56'}`}>
+        {project.thumbnail ? <img src={assetUrl(project.thumbnail)} alt={text(project.title)} className={`project-cover w-full ${spotlight ? 'h-auto rounded-lg shadow-lg' : 'h-full object-cover'}`} width="1920" height="1020" loading="lazy" /> : <span className="flex h-full items-center justify-center text-8xl font-display text-zinc-400">{text(project.title).slice(0, 1)}</span>}
       </div>
       <div className="p-6 sm:p-7">
         <div className="flex items-start gap-2 mb-4"><Tags skills={project.skills.slice(0, 3)} /><span className={`ms-auto text-xs pt-1 ${muted}`}>{project.year}</span></div>
+        {project.category ? <p className={`text-xs mb-3 ${muted}`}>{text(project.category)}</p> : null}
         <h3 className="font-display font-bold text-2xl group-hover:text-accent transition-colors">{text(project.title)}</h3>
         {text(project.shortDescription) ? <p className={`mt-3 text-sm leading-relaxed whitespace-pre-line ${muted}`}>{text(project.shortDescription)}</p> : null}
+        {spotlight && project.features.length ? <ul className="flex flex-wrap gap-x-4 gap-y-2 mt-5 text-xs font-medium">{project.features.slice(0, 3).map((feature) => <li key={feature.title.en} className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-accent" aria-hidden="true" />{text(feature.title)}</li>)}</ul> : null}
         <div className="flex flex-wrap items-center gap-4 mt-6">
           <span className="text-sm font-medium group-hover:text-accent">{t.viewProject} {language === 'fa' ? '←' : '→'}</span>
         </div>

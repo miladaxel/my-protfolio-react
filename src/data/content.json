@@ -70,7 +70,7 @@
       },
       "skills": [
         {
-          "title": "Docke",
+          "title": "Docker",
           "mark": "Do",
           "icon": "images/portfolio/skill-3.webp"
         }
@@ -81,17 +81,23 @@
     {
       "slug": "borhan",
       "title": {
-        "en": "borhan",
+        "en": "Borhan",
         "fa": "برهان"
       },
       "shortDescription": {
-        "en": "",
-        "fa": "یک سامانه ی کامل مدیریت دانش آموزان ‌. تولید جزوه . بررسی عملکرد دانش آموزان .  طرح تمرین اختصاصی برای هر دانش آموز . تصحیح خودکار ."
+        "en": "A student management platform that brings learning materials, personalized practice, automatic grading, and performance review into one teaching workflow.",
+        "fa": "سامانهٔ مدیریت دانش‌آموزان و فرایند آموزش؛ از تولید محتوای درسی و تمرین اختصاصی تا تصحیح خودکار و بررسی عملکرد، در یک مسیر یکپارچه برای معلم."
       },
       "description": {
-        "en": [],
+        "en": [
+          "Borhan brings the recurring tasks of teaching into a single web application: managing classes and students, preparing learning materials, assigning practice, and reviewing assessment results.",
+          "The project connects those tasks around the student’s learning journey. Learning materials support teaching, personalized exercises provide opportunities to practise, and automatic grading feeds into a closer review of each student’s performance.",
+          "The interface is designed in Persian with a right-to-left layout. The screenshots show the product introduction and the teacher’s assessment workspace, including question-level results for individual students."
+        ],
         "fa": [
-          "یک سامانه ی کامل مدیریت دانش آموزان ‌. تولید جزوه . بررسی عملکرد دانش آموزان .  طرح تمرین اختصاصی برای هر دانش آموز . تصحیح خودکار ."
+          "برهان یک اپلیکیشن تحت وب برای مدیریت دانش‌آموزان و کارهای روزمرهٔ آموزش است. مدیریت کلاس، آماده‌سازی محتوای درسی، طراحی تمرین و بررسی نتیجهٔ آزمون در یک محیط کنار هم قرار می‌گیرند تا معلم مسیر آموزش را منسجم‌تر دنبال کند.",
+          "محور پروژه، پیوند دادن آموزش و ارزیابی است: محتوای درسی برای تدریس آماده می‌شود، تمرین اختصاصی به یادگیری هر دانش‌آموز کمک می‌کند و نتیجهٔ تصحیح خودکار، مبنایی برای بررسی دقیق‌تر عملکرد او فراهم می‌آورد.",
+          "رابط فارسی و راست‌چین پروژه برای استفاده در فضای آموزشی طراحی شده است. تصاویر این صفحه، معرفی محصول و محیط بررسی نتایج آزمون را نشان می‌دهند؛ جایی که وضعیت پاسخ هر دانش‌آموز به تفکیک سؤال قابل مشاهده است."
         ]
       },
       "year": "2026",
@@ -100,71 +106,189 @@
       "skills": [
         "Django",
         "REST API",
-        "Docke"
+        "Docker"
       ],
       "thumbnail": "images/portfolio/project-2-cover.png",
-      "features": [],
-      "images": [
-        {
-          "src": "images/portfolio/project-2-image-2.png",
-          "caption": {
-            "en": "",
-            "fa": ""
-          }
-        }
-      ],
-      "githubUrl": "https://github.com/miladaxel/ai-assistant-with-sina",
-      "linkedinUrl": "https://github.com/miladaxel/ai-assistant-with-sina"
-    },
-    {
-      "slug": "django",
-      "title": {
-        "en": "django",
-        "fa": "django"
-      },
-      "shortDescription": {
-        "en": "asfsfaf",
-        "fa": "asfsfaf"
-      },
-      "description": {
-        "en": [
-          "fasffasf"
-        ],
-        "fa": [
-          "fasffasf"
-        ]
-      },
-      "year": "2026",
-      "status": "draft",
-      "featured": true,
-      "skills": [
-        "Django",
-        "REST API"
-      ],
-      "thumbnail": "images/portfolio/project-1-cover.png",
       "features": [
         {
           "title": {
-            "en": "asdasd",
-            "fa": "asdasd"
+            "en": "Classes & students",
+            "fa": "مدیریت کلاس و دانش‌آموز"
           },
           "description": {
-            "en": "sdfsadqwdqwsd",
-            "fa": "sdfsadqwdqwsd"
+            "en": "Organize classes and student information as the starting point for teaching and assessment.",
+            "fa": "سامان‌دهی کلاس‌ها و اطلاعات دانش‌آموزان به‌عنوان نقطهٔ شروع آموزش، تمرین و ارزیابی."
+          }
+        },
+        {
+          "title": {
+            "en": "Learning materials",
+            "fa": "تولید محتوای درسی"
+          },
+          "description": {
+            "en": "Prepare handouts and lesson materials alongside the rest of the teaching workflow.",
+            "fa": "آماده‌سازی جزوه و محتوای آموزشی در کنار سایر بخش‌های فرایند تدریس."
+          }
+        },
+        {
+          "title": {
+            "en": "Personalized practice",
+            "fa": "تمرین اختصاصی"
+          },
+          "description": {
+            "en": "Design exercises for individual students, with practice shaped around their learning needs.",
+            "fa": "طراحی تمرین برای هر دانش‌آموز با توجه به نیاز آموزشی او، به‌جای محدود شدن به یک تمرین یکسان برای همه."
+          }
+        },
+        {
+          "title": {
+            "en": "Exam management",
+            "fa": "مدیریت آزمون‌ها"
+          },
+          "description": {
+            "en": "Bring exam preparation and result review into the teacher’s workspace.",
+            "fa": "کنار هم قرار دادن طراحی آزمون و بررسی نتایج در محیط کاری معلم."
+          }
+        },
+        {
+          "title": {
+            "en": "Automatic grading",
+            "fa": "تصحیح خودکار"
+          },
+          "description": {
+            "en": "Review graded answers with a clear correct-or-incorrect result for each question.",
+            "fa": "تصحیح پاسخ‌ها و نمایش وضعیت درست یا نادرست هر سؤال برای بررسی جزئی‌تر نتیجهٔ آزمون."
+          }
+        },
+        {
+          "title": {
+            "en": "Performance review",
+            "fa": "بررسی عملکرد"
+          },
+          "description": {
+            "en": "Look beyond an overall result by reviewing individual answers and identifying where further practice is needed.",
+            "fa": "بررسی پاسخ‌ها به تفکیک دانش‌آموز و سؤال، برای شناخت بخش‌هایی که به تمرین و توجه بیشتری نیاز دارند."
           }
         }
       ],
       "images": [
         {
-          "src": "images/portfolio/project-1-image-1.png",
+          "src": "images/portfolio/project-2-image-2.png",
+          "title": {
+            "en": "Assessment, one answer at a time.",
+            "fa": "ارزیابی، به تفکیک هر پاسخ."
+          },
           "caption": {
-            "en": "",
-            "fa": ""
+            "en": "The exam results workspace shows each student’s answers question by question. Correct and incorrect labels make the result readable without relying on color alone; the side navigation keeps classes, exams, analysis, and exercises within reach.",
+            "fa": "در صفحهٔ نتایج آزمون، پاسخ هر دانش‌آموز به تفکیک سؤال نمایش داده می‌شود. برچسب‌های «درست» و «غلط» نتیجه را علاوه بر رنگ، با متن مشخص می‌کنند. منوی کناری نیز دسترسی به کلاس‌ها، آزمون‌ها، تحلیل‌ها و تمرین‌ها را فراهم می‌کند."
+          },
+          "alt": {
+            "en": "Borhan exam results: student-by-student tables with correct and incorrect answers and a Persian navigation sidebar.",
+            "fa": "صفحهٔ نتایج آزمون برهان با جدول پاسخ‌های درست و غلط هر دانش‌آموز و منوی فارسی پنل."
+          },
+          "width": 1920,
+          "height": 1020
+        }
+      ],
+      "githubUrl": "https://github.com/miladaxel/ai-assistant-with-sina",
+      "linkedinUrl": null,
+      "category": {
+        "en": "Education · Web application",
+        "fa": "آموزش · اپلیکیشن تحت وب"
+      },
+      "tagline": {
+        "en": "A connected workspace for teaching and assessment.",
+        "fa": "از مدیریت کلاس تا شناخت مسیر یادگیری."
+      },
+      "coverCaption": {
+        "en": "The Borhan introduction page, presenting the platform and the entry point to the user workspace.",
+        "fa": "صفحهٔ معرفی برهان؛ معرفی کاربرد سامانه و مسیر ورود به پنل کاربری."
+      },
+      "challenge": {
+        "title": {
+          "en": "Teaching involves more than delivering a lesson.",
+          "fa": "آموزش، فراتر از ارائهٔ یک درس است."
+        },
+        "description": {
+          "en": "Class information, learning materials, exercises, and assessment results all need to stay connected. When they are handled separately, understanding what each student needs becomes harder.",
+          "fa": "اطلاعات کلاس، محتوای درسی، تمرین‌ها و نتایج ارزیابی به هم وابسته‌اند. وقتی هر بخش جداگانه پیگیری شود، دیدن تصویر روشن از وضعیت هر دانش‌آموز و انتخاب تمرین بعدی دشوارتر می‌شود."
+        }
+      },
+      "approach": {
+        "title": {
+          "en": "Connect preparation, practice, and feedback.",
+          "fa": "آماده‌سازی، تمرین و بازخورد در یک مسیر."
+        },
+        "description": {
+          "en": "Borhan groups these activities in one workspace. A teacher can move from managing a class to preparing exercises and reviewing answers, with student performance remaining the thread that connects each stage.",
+          "fa": "برهان این فعالیت‌ها را در یک پنل کنار هم قرار می‌دهد. معلم از مدیریت کلاس به آماده‌سازی تمرین و سپس بررسی پاسخ‌ها می‌رسد؛ در تمام این مراحل، عملکرد دانش‌آموز حلقهٔ اتصال تصمیم‌های آموزشی است."
+        }
+      },
+      "workflow": [
+        {
+          "title": {
+            "en": "Organize the class",
+            "fa": "سامان‌دهی کلاس"
+          },
+          "description": {
+            "en": "Start with the class and its students.",
+            "fa": "شروع از کلاس و دانش‌آموزان آن."
+          }
+        },
+        {
+          "title": {
+            "en": "Prepare & assign",
+            "fa": "آماده‌سازی و تمرین"
+          },
+          "description": {
+            "en": "Prepare materials, exercises, and assessments.",
+            "fa": "آماده‌سازی محتوا، تمرین و آزمون."
+          }
+        },
+        {
+          "title": {
+            "en": "Grade the answers",
+            "fa": "تصحیح پاسخ‌ها"
+          },
+          "description": {
+            "en": "Review automatically graded question results.",
+            "fa": "مشاهدهٔ نتیجهٔ تصحیح هر سؤال."
+          }
+        },
+        {
+          "title": {
+            "en": "Review & follow up",
+            "fa": "بررسی و پیگیری"
+          },
+          "description": {
+            "en": "Use the results to guide the next round of practice.",
+            "fa": "استفاده از نتایج برای انتخاب تمرین بعدی."
           }
         }
       ],
-      "githubUrl": "https://hexdl.com/the-blacklist-series/",
-      "linkedinUrl": "https://hexdl.com/the-blacklist-series/"
+      "stack": [
+        {
+          "name": "Django",
+          "description": {
+            "en": "The Python framework used for the server-side application.",
+            "fa": "فریم‌ورک پایتونیِ مورد استفاده در بخش سمت سرور پروژه."
+          }
+        },
+        {
+          "name": "REST API",
+          "description": {
+            "en": "APIs for exchanging data between the application’s services and interfaces.",
+            "fa": "طراحی API برای تبادل داده میان سرویس‌ها و رابط‌های سامانه."
+          }
+        },
+        {
+          "name": "Docker",
+          "description": {
+            "en": "Container tooling for packaging dependencies and preparing the application’s runtime environment.",
+            "fa": "کانتینرسازی برای بسته‌بندی وابستگی‌ها و آماده‌سازی محیط اجرای پروژه."
+          }
+        }
+      ]
     }
   ]
 }
