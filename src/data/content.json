@@ -340,6 +340,261 @@
           }
         }
       ]
+    },
+    {
+      "slug": "lcd-manager",
+      "title": {
+        "en": "LCD Manager",
+        "fa": "LCD Manager"
+      },
+      "shortDescription": {
+        "en": "An LCD inventory application for managing products, brands, prices, and stock, with bulk quantity updates and Excel exports in a Persian workspace.",
+        "fa": "اپلیکیشن مدیریت انبار LCD برای ثبت کالا و برند، نگه‌داری قیمت‌ها، ویرایش گروهی موجودی و دریافت خروجی اکسل، در یک محیط فارسی و راست‌چین."
+      },
+      "description": {
+        "en": [
+          "LCD Manager is a Django web application for the everyday work of maintaining an LCD inventory. Products have a title, an optional brand, purchase and selling prices, current stock, and a separate initial stock value.",
+          "The inventory list combines search, stock filters, sorting, pagination, and editable quantities. Several stock levels can be updated in one request; validation and transactional writes keep an invalid update from leaving only part of the batch saved.",
+          "The Persian interface also includes brand pages, an Excel export of the full inventory, and a wallet balance that is maintained manually. The screenshots show the inventory overview, product creation form, and brand directory."
+        ],
+        "fa": [
+          "LCD Manager یک اپلیکیشن تحت وب با جنگو برای کارهای روزمرهٔ انبار LCD است. هر کالا با عنوان، برند اختیاری، قیمت خرید و فروش، موجودی فعلی و مقدار مستقل موجودی اولیه ثبت می‌شود.",
+          "فهرست انبار، جست‌وجو، فیلتر موجودی، مرتب‌سازی، صفحه‌بندی و ویرایش تعداد را در یک صفحه کنار هم قرار می‌دهد. چند موجودی در یک درخواست به‌روزرسانی می‌شوند و اعتبارسنجی و ذخیرهٔ تراکنشی مانع ثبت ناقص یک تغییر گروهی می‌شود.",
+          "رابط فارسی و راست‌چین پروژه، صفحهٔ برندها، خروجی اکسل از کل انبار و نمایش موجودی کیف پول با ویرایش دستی را نیز در بر می‌گیرد. تصاویر این صفحه، نمای انبار، فرم افزودن کالا و فهرست برندها را نشان می‌دهند."
+        ]
+      },
+      "year": "2026",
+      "status": "in-progress",
+      "featured": true,
+      "skills": [
+        "Python",
+        "Django",
+        "SQLite",
+        "openpyxl"
+      ],
+      "thumbnail": "images/portfolio/lcd-manager-inventory.png",
+      "category": {
+        "en": "Inventory · Web application",
+        "fa": "مدیریت انبار · اپلیکیشن تحت وب"
+      },
+      "tagline": {
+        "en": "Products, prices, and stock in one workspace.",
+        "fa": "کالا، قیمت و موجودی در یک نگاه."
+      },
+      "coverCaption": {
+        "en": "The inventory overview brings product models, brands, quantities, and purchase prices into an editable table, with stock and wallet totals, search, a zero-stock filter, and an Excel export action.",
+        "fa": "نمای اصلی انبار، مدل کالا، برند، تعداد و قیمت خرید را در یک جدول قابل ویرایش نشان می‌دهد؛ همراه با مجموع موجودی، موجودی کیف پول، جست‌وجو، فیلتر کالاهای بدون موجودی و گزینهٔ خروجی اکسل."
+      },
+      "sectionTitles": {
+        "features": {
+          "en": "The everyday tools of an inventory.",
+          "fa": "ابزارهای روزمرهٔ مدیریت انبار."
+        },
+        "workflowEyebrow": {
+          "en": "The inventory workflow",
+          "fa": "مسیر مدیریت موجودی"
+        },
+        "workflow": {
+          "en": "From a new product to an inventory report.",
+          "fa": "از ثبت کالا تا گزارش موجودی."
+        },
+        "stack": {
+          "en": "The technical foundation.",
+          "fa": "پایهٔ فنی پروژه."
+        }
+      },
+      "challenge": {
+        "title": {
+          "en": "Stock needs to stay easy to find and update.",
+          "fa": "موجودی باید به‌سادگی پیدا و اصلاح شود."
+        },
+        "description": {
+          "en": "An inventory involves more than a list of product names. Brands, purchase prices, selling prices, and quantities need to remain connected while stock changes are entered across several products.",
+          "fa": "کار انبار به فهرست نام کالاها محدود نیست. برند، قیمت خرید و فروش و تعداد هر کالا باید کنار هم قابل پیگیری باشند و تغییر موجودی چند کالا نیز به‌سادگی ثبت شود."
+        }
+      },
+      "approach": {
+        "title": {
+          "en": "Make the inventory list the working surface.",
+          "fa": "فهرست انبار، محل انجام کار است."
+        },
+        "description": {
+          "en": "The main table supports direct quantity edits, while search and filters narrow the list. Brand pages organize related products, and a full-inventory Excel export provides a portable report.",
+          "fa": "تعداد کالاها مستقیم در جدول اصلی ویرایش می‌شود و جست‌وجو و فیلتر، دسترسی به کالای مورد نظر را سریع‌تر می‌کنند. صفحهٔ هر برند کالاهای مرتبط را کنار هم می‌آورد و خروجی اکسل، گزارشی قابل استفاده از کل انبار می‌دهد."
+        }
+      },
+      "features": [
+        {
+          "title": {
+            "en": "Product records",
+            "fa": "ثبت و مدیریت کالا"
+          },
+          "description": {
+            "en": "Create, inspect, edit, and delete LCD products with purchase and selling prices, current stock, and initial stock.",
+            "fa": "افزودن، مشاهده، ویرایش و حذف کالا با ثبت قیمت خرید و فروش، موجودی فعلی و موجودی اولیه."
+          }
+        },
+        {
+          "title": {
+            "en": "Brand organization",
+            "fa": "دسته‌بندی بر اساس برند"
+          },
+          "description": {
+            "en": "Create and edit brands, then browse the products assigned to each brand.",
+            "fa": "ثبت و ویرایش برندها و مشاهدهٔ کالاهای مربوط به هر برند در صفحهٔ اختصاصی آن."
+          }
+        },
+        {
+          "title": {
+            "en": "Search & stock filters",
+            "fa": "جست‌وجو و فیلتر موجودی"
+          },
+          "description": {
+            "en": "Find products by title or slug, switch between available and zero-stock items, and sort by stock or purchase price.",
+            "fa": "یافتن کالا با عنوان یا اسلاگ، مشاهدهٔ کالاهای موجود یا بدون موجودی و مرتب‌سازی بر اساس تعداد یا قیمت خرید."
+          }
+        },
+        {
+          "title": {
+            "en": "Bulk stock updates",
+            "fa": "ویرایش گروهی موجودی"
+          },
+          "description": {
+            "en": "Edit several quantities in the list and save them together, with validation and all-or-nothing database updates.",
+            "fa": "ویرایش تعداد چند کالا در فهرست و ذخیرهٔ هم‌زمان آن‌ها، همراه با اعتبارسنجی و ثبت یکپارچهٔ تغییرات."
+          }
+        },
+        {
+          "title": {
+            "en": "Excel export",
+            "fa": "خروجی اکسل از انبار"
+          },
+          "description": {
+            "en": "Download all inventory records with Persian column headers for products, brands, quantities, prices, and update times.",
+            "fa": "دریافت همهٔ کالاهای انبار با ستون‌های فارسی شامل نام، برند، تعداد، قیمت‌ها و زمان آخرین به‌روزرسانی."
+          }
+        },
+        {
+          "title": {
+            "en": "Inventory & wallet overview",
+            "fa": "نمای کلی انبار و کیف پول"
+          },
+          "description": {
+            "en": "See total stock and a manually maintained wallet balance alongside the inventory list.",
+            "fa": "مشاهدهٔ مجموع موجودی کالاها و موجودی کیف پول در کنار فهرست انبار؛ مبلغ کیف پول به‌صورت دستی ویرایش می‌شود."
+          }
+        }
+      ],
+      "workflow": [
+        {
+          "title": {
+            "en": "Define a brand",
+            "fa": "ثبت برند"
+          },
+          "description": {
+            "en": "Organize products under their brand when needed.",
+            "fa": "دسته‌بندی کالاها با تعریف برند در صورت نیاز."
+          }
+        },
+        {
+          "title": {
+            "en": "Add the product",
+            "fa": "افزودن کالا"
+          },
+          "description": {
+            "en": "Enter the model, prices, and stock quantities.",
+            "fa": "ثبت مدل، قیمت‌ها و تعداد موجودی کالا."
+          }
+        },
+        {
+          "title": {
+            "en": "Review & update stock",
+            "fa": "بررسی و اصلاح موجودی"
+          },
+          "description": {
+            "en": "Find products and save quantity changes in a batch.",
+            "fa": "یافتن کالاها و ثبت گروهی تغییر تعداد آن‌ها."
+          }
+        },
+        {
+          "title": {
+            "en": "Export the inventory",
+            "fa": "دریافت گزارش انبار"
+          },
+          "description": {
+            "en": "Download the complete inventory as an Excel workbook.",
+            "fa": "دریافت فایل اکسل شامل کل کالاهای انبار."
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "images/portfolio/lcd-manager-create-product.png",
+          "title": {
+            "en": "Add an LCD with its prices and quantities.",
+            "fa": "ثبت LCD جدید با قیمت و موجودی."
+          },
+          "caption": {
+            "en": "The product form gathers the title, optional brand, current and initial stock, and selling and purchase prices. After saving, it returns the user to the product list.",
+            "fa": "فرم افزودن کالا، عنوان، برند اختیاری، موجودی فعلی و اولیه و قیمت خرید و فروش را دریافت می‌کند. پس از ذخیره، کاربر به فهرست کالاها برمی‌گردد."
+          },
+          "alt": {
+            "en": "LCD Manager product creation form with title, brand, stock, initial stock, and price fields in a dark Persian interface.",
+            "fa": "فرم ثبت LCD جدید با فیلدهای عنوان، برند، موجودی فعلی و اولیه و قیمت‌ها در رابط فارسی و تیره."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/lcd-manager-brands.png",
+          "title": {
+            "en": "Browse the inventory by brand.",
+            "fa": "دسترسی به کالاها از فهرست برندها."
+          },
+          "caption": {
+            "en": "The brand directory combines search with a card for each brand. Each card links to its products and brand editor, while the page provides shortcuts for adding a brand or LCD.",
+            "fa": "فهرست برندها، جست‌وجو و کارت هر برند را در یک صفحه قرار می‌دهد. هر کارت به کالاهای همان برند و ویرایش آن راه دارد و افزودن برند یا LCD نیز در دسترس است."
+          },
+          "alt": {
+            "en": "LCD Manager brand directory with a search field and brand cards with product and edit links.",
+            "fa": "فهرست برندهای LCD Manager با کادر جست‌وجو و کارت برندها همراه با گزینه‌های محصولات و ویرایش."
+          },
+          "width": 1920,
+          "height": 1020
+        }
+      ],
+      "stack": [
+        {
+          "name": "Python & Django",
+          "description": {
+            "en": "Django models, forms, class-based views, and templates implement the product and brand workflows.",
+            "fa": "مدل‌ها، فرم‌ها، نماهای کلاسی و قالب‌های جنگو، مسیرهای مدیریت کالا و برند را پیاده‌سازی می‌کنند."
+          }
+        },
+        {
+          "name": "SQLite",
+          "description": {
+            "en": "A local relational database stores products, brands, and wallet records, with transactions for batch stock changes.",
+            "fa": "پایگاه دادهٔ رابطه‌ای محلی برای ذخیرهٔ کالاها، برندها و کیف پول، همراه با تراکنش برای تغییر گروهی موجودی."
+          }
+        },
+        {
+          "name": "openpyxl",
+          "description": {
+            "en": "Generates the inventory Excel workbook with Persian headers and product details.",
+            "fa": "ساخت فایل اکسل انبار با عنوان ستون‌های فارسی و اطلاعات کالاها."
+          }
+        },
+        {
+          "name": "HTML, CSS & JavaScript",
+          "description": {
+            "en": "Django templates provide the dark Persian interface and right-to-left product tables and forms.",
+            "fa": "قالب‌های جنگو با HTML، CSS و جاوااسکریپت، رابط تیرهٔ فارسی و جدول‌ها و فرم‌های راست‌چین را ارائه می‌کنند."
+          }
+        }
+      ],
+      "githubUrl": "https://github.com/miladaxel/LCD-manager",
+      "linkedinUrl": null
     }
   ]
 }

@@ -75,9 +75,11 @@ test('mobile menu and Persian pages have no horizontal overflow', async ({ page 
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.getByRole('button', { name: 'View site in Persian' }).click();
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.goto(`/#/projects/${firstProject.slug}`);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(firstProject.title.fa);
-  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  for (const project of projects) {
+    await page.goto(`/#/projects/${project.slug}`);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(project.title.fa);
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
   await page.getByRole('button', { name: 'باز و بسته کردن منو' }).click();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'باز و بسته کردن منو' })).toHaveAttribute('aria-expanded', 'false');
@@ -125,39 +127,49 @@ test('published profile text, images, and contact links match the imported conte
   }
 });
 
-test('Borhan is the only project and its gallery links retain the project route', async ({ page }) => {
+test('featured projects and their galleries retain the project route', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#work .project-card')).toHaveCount(1);
-  await expect(page.locator('#work')).toContainText('Borhan');
+  const featured = projects.filter((project) => project.featured);
+  await expect(page.locator('#work .project-card')).toHaveCount(Math.min((featured.length ? featured : projects).length, 3));
+  for (const project of featured) await expect(page.locator('#work')).toContainText(project.title.en);
   await expect(page.locator('#work a[href*="/projects/django"]')).toHaveCount(0);
   await page.goto('/#/projects/django');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('This page could not be found.');
 
-  await page.goto('/#/projects/borhan');
-  await expect(page.getByRole('heading', { name: 'More projects', exact: true })).toHaveCount(0);
-  await expect(page.getByRole('heading', { name: 'From classroom to feedback.' })).toBeVisible();
-  await expect(page.locator('main > article ol > li')).toHaveCount(4);
-  await page.getByRole('link', { name: 'Explore the interface', exact: false }).click();
-  await expect(page).toHaveURL(/#\/projects\/borhan#project-gallery$/);
-  await expect.poll(() => page.locator('#project-gallery').evaluate((element) => Math.round(element.getBoundingClientRect().top))).toBeLessThan(100);
-  await page.reload();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Borhan');
+  for (const project of projects) {
+    await page.goto(`/#/projects/${project.slug}`);
+    await expect(page.getByRole('heading', { name: 'More projects', exact: true })).toHaveCount(projects.length > 1 ? 1 : 0);
+    const relatedProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 3);
+    await expect(page.locator('main .project-card')).toHaveCount(relatedProjects.length);
+    for (const related of relatedProjects) {
+      await expect(page.locator(`main .project-card a[href="#/projects/${related.slug}"]`)).toHaveCount(1);
+    }
+    await expect(page.getByRole('heading', { name: project.sectionTitles?.features.en ?? 'From classroom to feedback.', exact: true })).toBeVisible();
+    await expect(page.locator('main > article ol > li')).toHaveCount(project.workflow.length);
+    await page.getByRole('link', { name: 'Explore the interface', exact: false }).click();
+    expect(page.url()).toContain(`#/projects/${project.slug}#project-gallery`);
+    await expect.poll(() => page.locator('#project-gallery').evaluate((element) => Math.round(element.getBoundingClientRect().top))).toBeLessThan(100);
+    await page.reload();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(project.title.en);
 
-  const imageLinks = page.locator('#project-gallery a');
-  await expect(imageLinks).toHaveCount(firstProject.images.length);
-  for (const [index, image] of firstProject.images.entries()) {
-    const imageLink = imageLinks.nth(index);
-    await expect(imageLink).toHaveAttribute('href', `/${image.src}`);
-    const [imagePage] = await Promise.all([page.waitForEvent('popup'), imageLink.click()]);
-    await imagePage.waitForLoadState();
-    await expect(imagePage.locator('img')).toBeVisible();
-    expect(await imagePage.locator('img').evaluate((element) => element.naturalWidth)).toBe(image.width);
-    await imagePage.close();
+    const imageLinks = page.locator('#project-gallery a');
+    await expect(imageLinks).toHaveCount(project.images.length);
+    for (const [index, image] of project.images.entries()) {
+      const imageLink = imageLinks.nth(index);
+      await expect(imageLink).toHaveAttribute('href', `/${image.src}`);
+      const [imagePage] = await Promise.all([page.waitForEvent('popup'), imageLink.click()]);
+      await imagePage.waitForLoadState();
+      await expect(imagePage.locator('img')).toBeVisible();
+      expect(await imagePage.locator('img').evaluate((element) => element.naturalWidth)).toBe(image.width);
+      await imagePage.close();
+    }
+    await page.getByRole('button', { name: 'View site in Persian' }).click();
+    for (const image of project.images) {
+      await expect(page.locator('#project-gallery')).toContainText(image.title.fa);
+      await expect(page.locator('#project-gallery')).toContainText(image.caption.fa);
+    }
+    await expect(page.getByRole('heading', { name: project.sectionTitles?.features.fa ?? 'از کلاس درس تا بازخورد.', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: project.sectionTitles?.stack.fa ?? 'پایهٔ فنی برهان.', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'نمایش سایت به زبان انگلیسی' }).click();
   }
-  await page.getByRole('button', { name: 'View site in Persian' }).click();
-  for (const image of firstProject.images) {
-    await expect(page.locator('#project-gallery')).toContainText(image.title.fa);
-    await expect(page.locator('#project-gallery')).toContainText(image.caption.fa);
-  }
-  await expect(page.getByRole('heading', { name: 'از کلاس درس تا بازخورد.' })).toBeVisible();
 });

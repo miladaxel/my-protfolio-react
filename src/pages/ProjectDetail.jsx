@@ -67,7 +67,7 @@ export default function ProjectDetail() {
       </div></section> : null}
 
       {project.features.length ? <section className="py-16 md:py-20 bg-zinc-50 dark:bg-zinc-900/40"><div className={container}>
-        <SectionHeading eyebrow={t.featuresEyebrow} title={t.features} />
+        <SectionHeading eyebrow={t.featuresEyebrow} title={text(project.sectionTitles?.features) || t.features} />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">{project.features.map((feature) => <article key={feature.title.en} className="reveal border-t border-zinc-300 dark:border-zinc-700 pt-6">
           <h3 className="font-display font-bold text-xl mb-3">{text(feature.title)}</h3>
           {text(feature.description) ? <p className={`text-sm leading-relaxed ${muted}`}>{text(feature.description)}</p> : null}
@@ -75,7 +75,7 @@ export default function ProjectDetail() {
       </div></section> : null}
 
       {project.workflow?.length ? <section className="py-16 md:py-20"><div className={container}>
-        <SectionHeading eyebrow={t.workflowEyebrow} title={t.workflow} />
+        <SectionHeading eyebrow={text(project.sectionTitles?.workflowEyebrow) || t.workflowEyebrow} title={text(project.sectionTitles?.workflow) || t.workflow} />
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">{project.workflow.map((step, index) => <li key={step.title.en} className="reveal border-s-2 border-accent ps-5">
           <span className={`block text-sm mb-5 tabular-nums ${muted}`} aria-hidden="true">{number.format(index + 1)}</span>
           <h3 className="font-display font-bold text-lg mb-2">{text(step.title)}</h3>
@@ -92,7 +92,7 @@ export default function ProjectDetail() {
       </div></section> : null}
 
       {project.stack?.length ? <section className="py-16 md:py-20"><div className={`${container} grid md:grid-cols-[.7fr_1.3fr] gap-8 md:gap-16`}>
-        <SectionHeading eyebrow={t.stackEyebrow} title={t.stack} />
+        <SectionHeading eyebrow={t.stackEyebrow} title={text(project.sectionTitles?.stack) || t.stack} />
         <dl className="reveal divide-y divide-zinc-200 dark:divide-zinc-800">{project.stack.map((item) => <div key={item.name} className="grid sm:grid-cols-[8rem_1fr] gap-3 py-6 first:pt-0">
           <dt className="font-display font-bold ltr-content text-start">{item.name}</dt><dd className={`text-sm leading-relaxed ${muted}`}>{text(item.description)}</dd>
         </div>)}</dl>
