@@ -42,37 +42,126 @@
   },
   "skillGroups": [
     {
-      "id": "category-1",
-      "category": "web development",
+      "id": "frontend",
+      "category": "frontend",
       "title": {
-        "en": "Web development",
-        "fa": "توسعه وب"
+        "en": "Frontend",
+        "fa": "فرانت‌اند"
       },
       "skills": [
+        {
+          "title": "HTML",
+          "icon": "images/skills/html.svg"
+        },
+        {
+          "title": "CSS",
+          "icon": "images/skills/css.svg"
+        },
+        {
+          "title": "JavaScript",
+          "icon": "images/skills/javascript.svg"
+        },
+        {
+          "title": "React",
+          "icon": "images/skills/react.svg"
+        }
+      ]
+    },
+    {
+      "id": "backend-api",
+      "category": "backend & apis",
+      "title": {
+        "en": "Backend & APIs",
+        "fa": "بک‌اند و API"
+      },
+      "skills": [
+        {
+          "title": "Python",
+          "icon": "images/skills/python.svg"
+        },
         {
           "title": "Django",
           "mark": "Dj",
           "icon": "images/portfolio/skill-1.png"
         },
         {
+          "title": "Django REST Framework",
+          "icon": "images/skills/django-rest-framework.svg"
+        },
+        {
           "title": "REST API",
-          "mark": "RE",
-          "icon": "images/portfolio/skill-2.webp"
+          "icon": "images/skills/rest-api.svg"
+        },
+        {
+          "title": "JWT",
+          "icon": "images/skills/jwt.svg"
         }
       ]
     },
     {
-      "id": "category-2",
-      "category": "deployment",
+      "id": "data-background-tasks",
+      "category": "data & background tasks",
       "title": {
-        "en": "Deployment",
-        "fa": "استقرار"
+        "en": "Data & background tasks",
+        "fa": "داده و پردازش پس‌زمینه"
       },
       "skills": [
+        {
+          "title": "PostgreSQL",
+          "icon": "images/skills/postgresql.svg"
+        },
+        {
+          "title": "Redis",
+          "icon": "images/skills/redis.svg"
+        },
+        {
+          "title": "Celery",
+          "icon": "images/skills/celery.svg"
+        }
+      ]
+    },
+    {
+      "id": "version-control",
+      "category": "version control",
+      "title": {
+        "en": "Version control",
+        "fa": "کنترل نسخه"
+      },
+      "skills": [
+        {
+          "title": "Git",
+          "icon": "images/skills/git.svg"
+        },
+        {
+          "title": "GitLab",
+          "icon": "images/skills/gitlab.svg"
+        }
+      ]
+    },
+    {
+      "id": "deployment",
+      "category": "deployment & infrastructure",
+      "title": {
+        "en": "Deployment & infrastructure",
+        "fa": "استقرار و زیرساخت"
+      },
+      "skills": [
+        {
+          "title": "Nginx",
+          "icon": "images/skills/nginx.svg"
+        },
+        {
+          "title": "Gunicorn",
+          "icon": "images/skills/gunicorn.svg"
+        },
         {
           "title": "Docker",
           "mark": "Do",
           "icon": "images/portfolio/skill-3.webp"
+        },
+        {
+          "title": "Deployment",
+          "icon": "images/skills/deployment.svg"
         }
       ]
     }
