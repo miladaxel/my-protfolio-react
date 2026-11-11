@@ -684,6 +684,337 @@
       ],
       "githubUrl": "https://github.com/miladaxel/LCD-manager",
       "linkedinUrl": null
+    },
+    {
+      "slug": "online-shop",
+      "title": {
+        "en": "Online Shop",
+        "fa": "آنلاین‌شاپ"
+      },
+      "shortDescription": {
+        "en": "A Persian multi-seller marketplace with product discovery, variant-based shopping, cart and order workflows, and dedicated seller dashboards, built with Django and Django REST Framework.",
+        "fa": "فروشگاه اینترنتی چندفروشنده با جست‌وجو و انتخاب کالا، تنوع‌های محصول، سبد خرید و ثبت سفارش و پنل اختصاصی فروشندگان؛ ساخته‌شده با Django و Django REST Framework."
+      },
+      "description": {
+        "en": [
+          "Online Shop is an e-commerce portfolio project inspired by Digikala. It connects a Persian storefront with a multi-seller catalog: a product can have different offers for its seller, color, warranty, price, and discount.",
+          "The customer workflow covers category browsing, live search, product comparison, wishlists, a guest or signed-in cart, and order tracking. The backend includes OTP authentication, coupon validation, checkout transactions, and snapshots of order prices and delivery addresses.",
+          "A separate seller workspace brings together stock, prices, incoming orders, sales summaries, and settlement requests. The Django application also exposes REST endpoints with Swagger and Redoc documentation; PostgreSQL, Redis caching, and Docker Compose support its runtime setup. The screenshots show the sample storefront and seller workspace."
+        ],
+        "fa": [
+          "آنلاین‌شاپ یک پروژهٔ نمونه‌کار فروشگاهی با الهام از دیجی‌کالا است. رابط فارسی فروشگاه به یک کاتالوگ چندفروشنده متصل است؛ هر محصول می‌تواند بر اساس فروشنده، رنگ، گارانتی، قیمت و تخفیف، پیشنهادهای متفاوتی داشته باشد.",
+          "مسیر مشتری، مرور دسته‌بندی‌ها، جست‌وجوی زنده، مقایسهٔ کالا، علاقه‌مندی‌ها، سبد خرید مهمان یا کاربر و پیگیری سفارش را در بر می‌گیرد. در بک‌اند نیز ورود با رمز یک‌بارمصرف، اعتبارسنجی کد تخفیف، ثبت تراکنشی سفارش و نگه‌داری تصویر ثابتی از قیمت اقلام و نشانی تحویل پیاده‌سازی شده است.",
+          "محیط اختصاصی فروشندگان، موجودی و قیمت‌ها، سفارش‌های دریافتی، خلاصهٔ فروش و درخواست‌های تسویه‌حساب را کنار هم قرار می‌دهد. اپلیکیشن جنگو، APIهای REST با مستندات Swagger و Redoc نیز ارائه می‌کند و برای محیط اجرا از PostgreSQL، کش Redis و Docker Compose بهره می‌برد. تصاویر این صفحه، فروشگاه نمونه و بخش‌های پنل فروشنده را نشان می‌دهند."
+        ]
+      },
+      "year": "2026",
+      "status": "in-progress",
+      "featured": true,
+      "skills": [
+        "Django",
+        "Django REST Framework",
+        "PostgreSQL",
+        "Redis",
+        "Docker"
+      ],
+      "thumbnail": "images/portfolio/online-shop-storefront.png",
+      "category": {
+        "en": "E-commerce · Multi-seller marketplace",
+        "fa": "تجارت الکترونیک · فروشگاه چندفروشنده"
+      },
+      "tagline": {
+        "en": "From choosing a product to running a store.",
+        "fa": "از انتخاب کالا تا مدیریت فروشگاه."
+      },
+      "coverCaption": {
+        "en": "The Persian storefront brings search, category navigation, the shopping cart, and seller-center access together above a seasonal campaign and featured product categories.",
+        "fa": "صفحهٔ اصلی فارسی فروشگاه، جست‌وجو، دسترسی به دسته‌ها، سبد خرید و مرکز فروشندگان را در کنار بنر فروش فصلی و گروه‌های منتخب کالا نمایش می‌دهد."
+      },
+      "sectionTitles": {
+        "features": {
+          "en": "Shopping and selling in one platform.",
+          "fa": "خرید و فروش در یک پلتفرم."
+        },
+        "workflowEyebrow": {
+          "en": "The commerce workflow",
+          "fa": "مسیر خرید و فروش"
+        },
+        "workflow": {
+          "en": "Discover, choose, order, and fulfil.",
+          "fa": "از پیدا کردن کالا تا پردازش سفارش."
+        },
+        "stack": {
+          "en": "The technical foundation.",
+          "fa": "پایهٔ فنی فروشگاه."
+        }
+      },
+      "challenge": {
+        "title": {
+          "en": "A marketplace connects more than products.",
+          "fa": "فروشگاه چندفروشنده، فراتر از فهرست کالاهاست."
+        },
+        "description": {
+          "en": "Customers need to compare offers and understand their order, while sellers need to maintain prices, quantities, and incoming requests. Those workflows share product and order data that must remain consistent.",
+          "fa": "خریدار باید پیشنهادها را مقایسه و وضعیت سفارش خود را دنبال کند؛ فروشنده نیز به مدیریت قیمت، موجودی و سفارش‌های دریافتی نیاز دارد. این مسیرها به داده‌های مشترک کالا و سفارش وابسته‌اند که باید هماهنگ باقی بمانند."
+        }
+      },
+      "approach": {
+        "title": {
+          "en": "Separate the workflows and connect the data.",
+          "fa": "مسیرهای مستقل با داده‌های مرتبط."
+        },
+        "description": {
+          "en": "The application separates accounts, products, cart, orders, payments, and discounts into Django modules. Product variants connect each seller’s offer to the customer’s cart, while checkout preserves order details for later review.",
+          "fa": "حساب‌های کاربری، محصولات، سبد خرید، سفارش‌ها، پرداخت و تخفیف‌ها در ماژول‌های جداگانهٔ جنگو سازمان‌دهی شده‌اند. تنوع‌های محصول، پیشنهاد هر فروشنده را به سبد مشتری متصل می‌کنند و ثبت سفارش، جزئیات خرید را برای پیگیری بعدی نگه می‌دارد."
+        }
+      },
+      "features": [
+        {
+          "title": {
+            "en": "Product discovery",
+            "fa": "جست‌وجو و انتخاب کالا"
+          },
+          "description": {
+            "en": "Browse categories and brands, search without reloading, compare product specifications, and save items to a wishlist.",
+            "fa": "مرور دسته‌ها و برندها، جست‌وجو بدون بارگذاری مجدد صفحه، مقایسهٔ مشخصات فنی و ذخیرهٔ کالا در علاقه‌مندی‌ها."
+          }
+        },
+        {
+          "title": {
+            "en": "Multi-seller product variants",
+            "fa": "تنوع کالا و چندفروشندگی"
+          },
+          "description": {
+            "en": "Represent separate offers for a product with their own seller, color, warranty, stock, price, and discount.",
+            "fa": "تعریف پیشنهادهای مستقل برای یک محصول با فروشنده، رنگ، گارانتی، موجودی، قیمت و تخفیف متفاوت."
+          }
+        },
+        {
+          "title": {
+            "en": "Cart & order lifecycle",
+            "fa": "سبد خرید و چرخهٔ سفارش"
+          },
+          "description": {
+            "en": "Merge a guest cart after sign-in, place orders transactionally, preserve purchase details, and track delivery progress.",
+            "fa": "ادغام سبد مهمان پس از ورود، ثبت تراکنشی سفارش، نگه‌داری جزئیات خرید و پیگیری مراحل ارسال."
+          }
+        },
+        {
+          "title": {
+            "en": "Accounts, discounts & payments",
+            "fa": "حساب کاربری، تخفیف و پرداخت"
+          },
+          "description": {
+            "en": "Sign in with a mobile OTP, manage delivery addresses, validate fixed or percentage coupons, and use payment integration or simulation flows.",
+            "fa": "ورود با رمز یک‌بارمصرف موبایل، مدیریت نشانی‌های تحویل، اعتبارسنجی تخفیف ثابت یا درصدی و مسیر اتصال یا شبیه‌سازی پرداخت."
+          }
+        },
+        {
+          "title": {
+            "en": "Seller operations",
+            "fa": "عملیات و گزارش‌های فروشنده"
+          },
+          "description": {
+            "en": "Manage product offers, prices, stock, and received orders from a dedicated dashboard with sales and inventory summaries.",
+            "fa": "مدیریت پیشنهادهای کالا، قیمت، موجودی و سفارش‌های دریافتی در داشبورد اختصاصی همراه با خلاصهٔ فروش و وضعیت انبار."
+          }
+        },
+        {
+          "title": {
+            "en": "Seller finances",
+            "fa": "درآمد و تسویه‌حساب فروشنده"
+          },
+          "description": {
+            "en": "Review the store’s financial summary, platform commission, settlement-ready balance, bank details, and settlement request history.",
+            "fa": "مشاهدهٔ خلاصهٔ مالی فروشگاه، کارمزد پلتفرم، موجودی آمادهٔ تسویه، مشخصات بانکی و تاریخچهٔ درخواست‌های تسویه‌حساب."
+          }
+        }
+      ],
+      "workflow": [
+        {
+          "title": {
+            "en": "Discover a product",
+            "fa": "پیدا کردن کالا"
+          },
+          "description": {
+            "en": "Browse categories, search, and compare available products.",
+            "fa": "مرور دسته‌ها، جست‌وجو و مقایسهٔ کالاهای موجود."
+          }
+        },
+        {
+          "title": {
+            "en": "Choose an offer",
+            "fa": "انتخاب پیشنهاد فروش"
+          },
+          "description": {
+            "en": "Select a seller and product variant, then add it to the cart.",
+            "fa": "انتخاب فروشنده و تنوع محصول و افزودن آن به سبد خرید."
+          }
+        },
+        {
+          "title": {
+            "en": "Place & track the order",
+            "fa": "ثبت و پیگیری سفارش"
+          },
+          "description": {
+            "en": "Confirm delivery and order details, then follow the order status.",
+            "fa": "تأیید جزئیات خرید و تحویل و دنبال کردن وضعیت سفارش."
+          }
+        },
+        {
+          "title": {
+            "en": "Manage fulfilment",
+            "fa": "مدیریت سفارش فروشگاه"
+          },
+          "description": {
+            "en": "Review received orders, inventory, and financial summaries in the seller center.",
+            "fa": "بررسی سفارش‌های دریافتی، موجودی و گزارش‌های مالی در مرکز فروشندگان."
+          }
+        }
+      ],
+      "images": [
+        {
+          "src": "images/portfolio/online-shop-special-offers.png",
+          "title": {
+            "en": "Promotions with the product details in view.",
+            "fa": "پیشنهادهای ویژه همراه با اطلاعات کالا."
+          },
+          "caption": {
+            "en": "The special-offers section shows product images, availability, brands, original and discounted prices, and discount percentages in a horizontal product strip.",
+            "fa": "بخش پیشنهادهای ویژه، تصویر کالا، وضعیت موجودی، برند، قیمت قبل و بعد از تخفیف و درصد تخفیف را در ردیفی از کارت‌های محصول نشان می‌دهد."
+          },
+          "alt": {
+            "en": "Online Shop special-offers section with product cards, prices, discounts, and promotional banners.",
+            "fa": "بخش پیشنهادهای ویژهٔ آنلاین‌شاپ با کارت محصولات، قیمت‌ها، درصد تخفیف و بنرهای تبلیغاتی."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/online-shop-laptops.png",
+          "title": {
+            "en": "A category with its own brands and offers.",
+            "fa": "صفحهٔ دسته‌بندی با برندها و پیشنهادهای مرتبط."
+          },
+          "caption": {
+            "en": "The laptop category combines brand shortcuts, category-specific promotions, sorting choices, and product filters to help narrow the catalog.",
+            "fa": "دستهٔ لپ‌تاپ، دسترسی به برندها، پیشنهادهای ویژهٔ همان گروه، گزینه‌های مرتب‌سازی و فیلتر کالاها را در یک صفحه کنار هم قرار می‌دهد."
+          },
+          "alt": {
+            "en": "Online Shop laptop category with brand filters, discounted laptop cards, sorting, and a filter sidebar.",
+            "fa": "دسته‌بندی لپ‌تاپ آنلاین‌شاپ با فیلتر برند، کارت لپ‌تاپ‌های تخفیف‌دار، مرتب‌سازی و ستون فیلترها."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/online-shop-categories.png",
+          "title": {
+            "en": "Explore the catalog by product group.",
+            "fa": "مرور کاتالوگ بر اساس گروه کالا."
+          },
+          "caption": {
+            "en": "The category directory groups digital goods, home appliances, and fashion and sports products, with links to their subcategories and complete listings.",
+            "fa": "فهرست دسته‌ها، کالاهای دیجیتال، لوازم خانگی و گروه مد و ورزش را همراه با زیرگروه‌ها و مسیر مشاهدهٔ همهٔ کالاهای هر گروه نمایش می‌دهد."
+          },
+          "alt": {
+            "en": "Online Shop category directory showing digital goods, home appliances, and fashion and sports subcategories.",
+            "fa": "فهرست دسته‌بندی‌های آنلاین‌شاپ شامل زیرگروه‌های کالای دیجیتال، لوازم خانگی و مد و ورزش."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/online-shop-cart.png",
+          "title": {
+            "en": "Review the offer before ordering.",
+            "fa": "مرور جزئیات خرید پیش از ثبت سفارش."
+          },
+          "caption": {
+            "en": "Cart items retain their selected color, seller, and warranty. Quantity controls, item removal, discounted prices, and an order summary prepare the customer for checkout.",
+            "fa": "اقلام سبد خرید با رنگ، فروشنده و گارانتی انتخاب‌شده نمایش داده می‌شوند. کنترل تعداد، حذف کالا، قیمت تخفیف‌خورده و خلاصهٔ مبلغ سفارش، پیش از ادامهٔ خرید در دسترس‌اند."
+          },
+          "alt": {
+            "en": "Online Shop cart containing a laptop, watch, and console with quantity controls and an order-price summary.",
+            "fa": "سبد خرید آنلاین‌شاپ شامل لپ‌تاپ، ساعت و کنسول با کنترل تعداد و خلاصهٔ مبلغ سفارش."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/online-shop-seller-dashboard.png",
+          "title": {
+            "en": "A dedicated workspace for the seller.",
+            "fa": "داشبورد اختصاصی مدیریت فروشگاه."
+          },
+          "caption": {
+            "en": "The seller dashboard shows sales and net-income summaries, active product variants, a recent-sales chart, stock health, and shortcuts to product and order management.",
+            "fa": "داشبورد فروشنده، خلاصهٔ فروش و درآمد خالص، تنوع‌های فعال کالا، نمودار فروش اخیر، سلامت موجودی و دسترسی به مدیریت کالاها و سفارش‌ها را نشان می‌دهد."
+          },
+          "alt": {
+            "en": "Online Shop seller dashboard with sales cards, a seven-day sales chart, inventory health, and seller navigation.",
+            "fa": "داشبورد فروشندهٔ آنلاین‌شاپ با کارت‌های فروش، نمودار هفت‌روزه، وضعیت موجودی و منوی مدیریت فروشگاه."
+          },
+          "width": 1920,
+          "height": 1020
+        },
+        {
+          "src": "images/portfolio/online-shop-seller-finances.png",
+          "title": {
+            "en": "Follow income and settlement requests.",
+            "fa": "پیگیری درآمد و درخواست‌های تسویه‌حساب."
+          },
+          "caption": {
+            "en": "The finance view separates the settlement-ready balance, store share, platform commission, and paid settlements, with bank-account details and a settlement request history.",
+            "fa": "صفحهٔ مالی، موجودی آمادهٔ تسویه، سهم فروشگاه، کارمزد پلتفرم و تسویه‌های واریزشده را تفکیک می‌کند و مشخصات حساب بانکی و تاریخچهٔ درخواست‌های تسویه را در دسترس قرار می‌دهد."
+          },
+          "alt": {
+            "en": "Online Shop seller-finance page with settlement balance cards, bank-account information, and an empty settlement-request history.",
+            "fa": "صفحهٔ مالی فروشندهٔ آنلاین‌شاپ با کارت‌های موجودی تسویه، اطلاعات حساب بانکی و تاریخچهٔ درخواست‌های تسویه."
+          },
+          "width": 1920,
+          "height": 1020
+        }
+      ],
+      "stack": [
+        {
+          "name": "Python & Django",
+          "description": {
+            "en": "Separate Django applications handle accounts, products, carts, orders, payments, and discounts, with templates for the Persian storefront.",
+            "fa": "اپلیکیشن‌های مستقل جنگو برای حساب‌ها، محصولات، سبد خرید، سفارش‌ها، پرداخت و تخفیف‌ها، همراه با قالب‌های رابط فارسی فروشگاه."
+          }
+        },
+        {
+          "name": "Django REST Framework",
+          "description": {
+            "en": "Versioned REST APIs expose the application workflows, with OpenAPI documentation through Swagger and Redoc.",
+            "fa": "ارائهٔ مسیرهای اصلی سامانه با APIهای REST نسخه‌بندی‌شده و مستندات OpenAPI در Swagger و Redoc."
+          }
+        },
+        {
+          "name": "PostgreSQL",
+          "description": {
+            "en": "The container setup uses PostgreSQL for relational data; transactional checkout preserves item and address snapshots alongside stock updates.",
+            "fa": "پیکربندی کانتینری از PostgreSQL برای داده‌های رابطه‌ای استفاده می‌کند؛ ثبت تراکنشی سفارش، اطلاعات اقلام و نشانی را در کنار تغییر موجودی نگه می‌دارد."
+          }
+        },
+        {
+          "name": "Redis",
+          "description": {
+            "en": "Catalog caching includes invalidation after product changes and a fallback path when Redis is unavailable.",
+            "fa": "کش کاتالوگ با پاک‌سازی پس از تغییرات محصول و مسیر جایگزین هنگام در دسترس نبودن Redis."
+          }
+        },
+        {
+          "name": "Docker Compose",
+          "description": {
+            "en": "Runs the Django application, PostgreSQL, and Redis as separate services in a shared environment.",
+            "fa": "اجرای اپلیکیشن جنگو، PostgreSQL و Redis به‌عنوان سرویس‌های مجزا در یک محیط مشترک."
+          }
+        }
+      ],
+      "githubUrl": "https://github.com/miladaxel/online-shop",
+      "linkedinUrl": null
     }
   ]
 }
