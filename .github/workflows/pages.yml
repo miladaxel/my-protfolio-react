@@ -18,6 +18,10 @@ jobs:
   build:
     name: Test and build
     runs-on: ubuntu-latest
+    container:
+      # Keep this version aligned with Playwright in package-lock.json.
+      image: mcr.microsoft.com/playwright:v1.64.0-noble
+      options: --ipc=host
     timeout-minutes: 15
     permissions:
       contents: read
@@ -31,8 +35,8 @@ jobs:
           cache-dependency-path: package-lock.json
       - name: Install dependencies
         run: npm ci
-      - name: Install the test browser
-        run: npx playwright install --with-deps chromium
+      - name: Verify the bundled test browser
+        run: node -e "const { chromium } = require('@playwright/test'); require('node:fs').accessSync(chromium.executablePath());"
       - name: Test the portfolio
         run: npm test
       - name: Configure Pages
